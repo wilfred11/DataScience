@@ -7,7 +7,7 @@ import numpy as np
 from bernoulli import central_limit_theorema_simul
 from cluster import cluster
 from correlation import correlation, correlation_lr
-from exponential import exponential, exponential_info, exponential_banner
+from exponential import exponential, exponential_info, exponential_banner, exponential_wait
 from hypothesis_testing import test_slightly_unfair_die
 import random
 from binom import create_binom_data, mean_variance, draw, coin
@@ -106,5 +106,6 @@ if do == 11:
     exponential_info()
     exponential()
     exponential_banner()
+    exponential_wait()
 
 

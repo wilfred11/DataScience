@@ -1,2 +1,4 @@
 /Data/
 /.idea/
+/poetry.lock
+/poetry.toml

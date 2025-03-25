@@ -43,4 +43,25 @@ def exponential_banner():
     ans = expon.cdf(x=5, scale=8)
     print('Probability that the wait time is <= five minutes:', round(ans * 100, 2))
 
+def exponential_wait():
+    print("Your website receives 250 visitors per hour on average (assume poisson distribution).")
+    print("What is the probability of waiting more than 15 seconds for the next visitor?")
+    print("To answer this question, first find λ (average number of visitors per second) and then apply the expon.cdf() function to calculate the probability of wait time being more than 15 seconds.")
+    # Claculate avg visitors per second
+    rate = 250 / 3600
+    print("visitors per second: "+ str(rate))
+
+    # Calculate P(X>15)
+    ans = 1 - expon.cdf(x=15, scale=1 / rate)
+    print('Probability that the wait time is >fifteen seconds:'+ str(round(ans * 100, 2)) +"%.")
+
+    dt=expon.rvs(scale=1/rate, size=10000)
+    sns.kdeplot(x=dt, fill=True, label='1/lambda='+str(rate))
+    plt.xlabel('Units of time between successive events')
+    plt.ylabel('Probability')
+    plt.title('Exponential Distribution')
+    plt.legend()
+    plt.xlim(0, 200)
+    plt.show()
+
 
