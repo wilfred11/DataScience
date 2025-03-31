@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
 import scipy
+from scipy import stats
 from scipy.stats import norm
 from numpy import random
 from numpy import random
+import random as rd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from scipy.stats import norm
@@ -91,6 +93,23 @@ def confidence_interval():
     low,hi=D.interval(.68)
     print("We are 68% confident that the true number of students in an average illinois course is between "+ str(low)+" and "+str(hi))
 
+
+def t_test():
+    a = [rd.gauss(48, 20) for x in range(30)]
+    b = [rd.gauss(56, 15) for x in range(30)]
+
+    # Independent sample test
+    # Null hypothesis: mean of a = mean of b
+    t_stat, p_value = stats.ttest_ind(a, b, equal_var=False)
+
+    print("T-statistic:", t_stat)
+    print("P-value:", p_value)
+    print("mean(a), mean(b)")
+    print(np.mean(a), np.mean(b))
+    if p_value>0.05:
+        print("P_value is greater than 0.05 so there are no reasons to reject the null hypothesis. The null hypothesis is that the means are equal.")
+    else:
+        print("P_value is smaller than 0.05 so there are reasons to reject the null hypothesis. The alternative hypothesis is that the means are different.")
 
 
 

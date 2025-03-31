@@ -8,14 +8,17 @@ from bernoulli import central_limit_theorema_simul
 from cluster import cluster
 from correlation import correlation, correlation_lr
 from exponential import exponential, exponential_info, exponential_banner, exponential_wait
+from gradient_descent import gradient_descent
 from hypothesis_testing import test_slightly_unfair_die
 import random
 from binom import create_binom_data, mean_variance, draw, coin
-from normal import normal_visual, normal_distribution, confidence_interval
+from neural_net import neural_net
+from normal import normal_visual, normal_distribution, confidence_interval, t_test
 from linear_regression import linear_regression, multiple_regression
 from poisson import poisson
+from vector import vector, vector_calc
 
-do= 11
+do= 15
 
 if do==0:
     path = "Data/IBM-313 Marks.xlsx"
@@ -107,5 +110,18 @@ if do == 11:
     exponential()
     exponential_banner()
     exponential_wait()
+
+if do==12:
+    t_test()
+if do == 13:
+    vector()
+    vector_calc()
+
+if do == 14:
+    gradient_descent()
+
+if do == 15:
+    neural_net()
+
 
 
